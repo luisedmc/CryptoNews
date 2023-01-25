@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Loading from "./utils/Loading";
+import { Link } from "react-router-dom";
+import { Card, Row } from 'react-bootstrap';
+import Loading from "./Loading";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -14,7 +16,7 @@ const Articles = () => {
             .then(data => {
                 setIsLoading(false);
                 setArticles(data.articles.slice(0, 26));
-                console.log(data.articles.slice(0, 26));
+                // console.log(data.articles.slice(0, 26));
             })
             .catch(error => {
                 setIsLoading(false);
@@ -27,36 +29,28 @@ const Articles = () => {
             <h1 className="display-3 text-center fw-bold">Latest Articles</h1>
 
             {isLoading && <Loading />}
-            <div className="row">
+            <Row>
                 {articles.map((article, index) => {
                     return (
-                        <article key={index} className="col-md-6 d-flex justify-content-between">
+                        <Card key={index} className="mx-auto my-3 p-0" style={{ width: "28rem" }}>
+                            <Link to={`/articles/${index}`} className="text-decoration-none">
+                                <Card.Img className="img-fluid w-100" variant="top" src={article.urlToImage} /> </Link>
 
-                            <div className="article_card">
-                                <div className="article_image">
-                                    <img className="img-fluid w-100" src={article.urlToImage} alt={article.title} />
-                                </div>
+                            <Card.Body>
+                                <Link to={`/articles/${index}`} className="text-decoration-none">
+                                    <Card.Title>{article.title}</Card.Title> </Link>
+                                <Card.Text>{article.description}</Card.Text>
+                            </Card.Body>
 
-                                <div className="article_description">
-                                    <div className="article_title">
-                                        <h2>{article.title}</h2>
-                                    </div>
-
-                                    <p>{article.description}</p>
-                                </div>
-
-                                <div className="article_button">
-                                    <div className="read_more">
-                                        <a target="blank" rel="noopener noreferrer" href={article.url}>Read more</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </article>
+                            <Card.Footer className="d-flex justify-content-between align-items-center">
+                                <small className="text-muted">By '{article.author}'</small>
+                                <Link to={`/articles/${index}`}>Read More</Link>
+                            </Card.Footer>
+                        </Card>
                     );
                 })}
-            </div>
-        </div>
+            </Row>
+        </div >
     );
 }
 

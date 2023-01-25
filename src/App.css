@@ -1,60 +1,36 @@
-.article_card {
-    height: 500px;
-    overflow: hidden;
-    box-shadow: 0 0 15px -5px;
-    transition: 0.5s;
-    animation: ease-in;
-    margin: 2rem;
-    position: relative;
-}
-
-.article_card:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 15px 0;
-}
-
-.article_image {
-    overflow: hidden;
-    height: 190px;
-}
-
-.article_description {
-    margin: 1rem;
-    margin-top: .5rem;
-}
-
-.article_title {
-    margin-bottom: .5rem;
-}
-
-.article_button {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-}
-
-.read_more {
-    display: flex;
-    justify-content: center;
-}
-
-.read_more a,
-button {
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.3rem;
-    padding: .5rem;
-    margin: .5rem;
-    background-color: #FFF;
-    border: none;
-    transition: .2s;
-}
-
-h2,
-p {
-    margin: 0;
+* {
     padding: 0;
+    margin: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+/* Loading Component */
+@keyframes spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 10px solid #f3f3f3;
+    border-top: 10px solid #383636;
+    border-radius: 50%;
+    animation: spinner 1.5s linear infinite;
+}
+
+.spinner-container {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 350px;
 }
