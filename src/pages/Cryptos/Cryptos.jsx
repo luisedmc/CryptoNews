@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Row, Col, ListGroup, Badge } from 'react-bootstrap';
-import Loading from './Loading';
+import Loading from "../../components/Loading";
+import Title from '../../components/Title';
 
 const COIN_KEY = process.env.REACT_APP_COIN_KEY;
 
@@ -42,7 +43,7 @@ function Crypto() {
 
     return (
         <>
-            <h1 className="display-3 text-center fw-bold">All Coins</h1>
+            <Title title="Cryptocurrencies" />
 
             {isLoading && <Loading />}
 

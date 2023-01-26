@@ -1,31 +1,33 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
-import './App.css';
+import { Container, Row, Col, Nav } from 'react-bootstrap';
+import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
     return (
-        <div className='container'>
-            <div className='row'>
+        <Container className='mt-5'>
+            {/* <div className='row'>
                 <div className='col'>
                     <h1 className='mt-3'>Web News</h1>
                 </div>
-            </div>
+            </div> */}
 
-            <div className='row'>
-                <div className='col-md-2'>
-                    <nav className='list-group'>
+            <Row>
+                <Col md={2}>
+                    <Nav className='list-group pe-auto'>
                         <Link to='/' className='list-group-item list-group-item-action'>Home</Link>
+                        <Link to='/cryptos' className='list-group-item list-group-item-action'>Cryptos</Link>
                         <Link to='/articles' className='list-group-item list-group-item-action'>Articles</Link>
                         <Link to='/about' className='list-group-item list-group-item-action'>About</Link>
-                    </nav>
-                </div>
+                    </Nav>
+                </Col>
 
-                <div className='col-md-10'>
+                <Col md={10}>
                     <Outlet />
-                </div>
-            </div>
-        </div>
+                </Col>
+            </Row>
+        </Container>
     );
 }
 

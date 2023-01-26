@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Container, Col, Row, Image } from 'react-bootstrap';
-import Loading from "./Loading";
+import Loading from "../../components/Loading";
+import Title from "../../components/Title";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -32,17 +33,13 @@ const Article = () => {
     return (
         <Container>
             <Row>
-                <h1 className="display-3 mt-2 text-primary text-center fw-bold">{article.title}</h1>
+                <Title title={article.title} />
             </Row>
 
             {isLoading && <Loading />}
 
             <Row className="mt-4">
-                <p>{article.content}</p>
-                <Col className="d-flex justify-content-between">
-                    <small className="text-secondary">{article.publishedAt}</small>
-                    <small className="text-secondary">By {article.author}</small>
-                </Col>
+                <p>{article.description}</p>
             </Row>
 
             <Row className="mt-4">
@@ -51,11 +48,17 @@ const Article = () => {
                 </Col>
             </Row>
 
-            {/* <Row>
-                <Col className="d-flex justify-content-center align-items-center">
-                    <a href={article.url}>Full article</a>
+            <Row className="mt-4">
+                <p>{article.content}</p>
+            </Row>
+
+            <Row className="mt-4">
+                <Col className="d-flex justify-content-between">
+                    <small className="text-secondary">{article.publishedAt}</small>
+                    <small className="text-secondary">By {article.author}</small>
                 </Col>
-            </Row> */}
+            </Row>
+
         </Container>
     );
 }

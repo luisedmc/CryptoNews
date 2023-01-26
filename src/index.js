@@ -2,11 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App';
-import About from './components/About';
-import Article from './components/Article';
-import Articles from './components/Articles';
+import About from './pages/About/About';
+import Article from './pages/Article/Article';
+import Articles from './pages/Articles/Articles';
+import Crypto from './pages/Crypto/Crypto';
+import Cryptos from './pages/Cryptos/Cryptos';
 import ErrorPage from './ErrorPage';
-import './index.css';
 
 const router = createBrowserRouter([
     {
@@ -14,6 +15,14 @@ const router = createBrowserRouter([
         element: <App />,
         errorElement: <ErrorPage />,
         children: [
+            {
+                path: "cryptos",
+                element: <Cryptos />
+            },
+            {
+                path: "cryptos/:cryptoId",
+                element: <Crypto />
+            },
             {
                 path: "articles",
                 element: <Articles />,

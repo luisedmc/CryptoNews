@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Card, Row } from 'react-bootstrap';
-import Loading from "./Loading";
-import "./../App.css"
+import Title from "../../components/Title";
+import Loading from "../../components/Loading";
+import "./../../index.css";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -31,7 +32,7 @@ const Articles = () => {
 
     return (
         <>
-            <h1 className="display-3 text-center fw-bold">Latest Articles</h1>
+            <Title title="Latest Articles" />
 
             {isLoading && <Loading />}
             <Row>
@@ -39,7 +40,7 @@ const Articles = () => {
                     return (
                         <Card key={index} className="mx-auto my-3 p-0" style={{ width: "28rem" }}>
                             <Link to={`/articles/${index}`} className="text-decoration-none">
-                                <Card.Img className="img-fluid w-100" variant="top" src={article.urlToImage} /></Link>
+                                <Card.Img className="img-fluid max-height-image w-100" variant="top" src={article.urlToImage} /></Link>
 
                             <Card.Body>
                                 <Link to={`/articles/${index}`} className="text-decoration-none">
