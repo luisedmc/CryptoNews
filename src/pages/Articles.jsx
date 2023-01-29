@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import { Row } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 import Title from "../components/Title";
 import ArticleCard from "../components/ArticleCard";
 import Loading from "../components/Loading";
@@ -23,7 +23,10 @@ const Articles = () => {
             .then(response => response.json())
             .then(data => {
                 setIsLoading(false);
-                setArticles(data.articles.slice(0, 26));
+                const articleIndex = data.articles.slice(0, 26).map((article, index) => {
+                    return { ...article, originalIndex: index }
+                });
+                setArticles(articleIndex);
                 // console.log(data.articles.slice(0, 26));
             })
             .catch(error => {
@@ -36,7 +39,6 @@ const Articles = () => {
         setSearchQuery(event.target.value);
     }
 
-    // TODO: Keep the original index for the searched article.
     const searchedArticle = articles.filter((article, index) => {
         return article.title.toLowerCase().includes(searchQuery.toString().toLowerCase());
     });
@@ -46,15 +48,17 @@ const Articles = () => {
         <>
             <Title title="Latest Articles" />
 
-            {isLoading && <Loading />}
-
             <SearchBox onChange={handleSearch} />
+            {isLoading && <Loading />}
             {searchQuery !== "" ? (
-                searchedArticle.map((article, index) =>
-                    <ArticleCard key={index} index={index} article={article} />)
+                searchedArticle.map((article, index) => (
+                    <Row>
+                        <ArticleCard key={index} index={article.originalIndex} article={article} />
+                    </Row>
+                ))
             ) : (
                 articles.map((article, index) =>
-                    <ArticleCard key={index} index={index} article={article} />)
+                    <ArticleCard key={index} index={article.originalIndex} article={article} />)
             )}
         </>
     );
