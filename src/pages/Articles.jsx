@@ -39,7 +39,7 @@ const Articles = () => {
         setSearchQuery(event.target.value);
     }
 
-    const searchedArticle = articles.filter((article, index) => {
+    const searchedArticle = articles.filter(article => {
         return article.title.toLowerCase().includes(searchQuery.toString().toLowerCase());
     });
     // console.log(searchedArticle);
