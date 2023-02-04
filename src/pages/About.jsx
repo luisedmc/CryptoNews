@@ -10,7 +10,7 @@ const About = () => {
             <Row>
                 <h2>Purpose of the Project:</h2>
                 <p>
-                    This project was created to use public external APIs to display cryptocurrencies data and articles about.
+                    This project was created to use public external APIs to display cryptocurrencies data and articles about. A specific article or coin can be searched through a search bar.
                 </p>
             </Row>
 
@@ -25,6 +25,6 @@ const About = () => {
             </Row>
         </>
     );
-}
+};
 
 export default About;

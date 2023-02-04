@@ -1,13 +1,13 @@
-import React from 'react';
+import React from "react"
 
-import "./../index.css";
+import "./../index.css"
 
 const Loading = () => {
-    return (
-        <div className="spinner-container">
-            <div className="loading-spinner"></div>
-        </div>
-    );
+  return (
+    <div className="spinner-container">
+      <div className="loading-spinner"></div>
+    </div>
+  )
 }
 
-export default Loading;
+export default Loading

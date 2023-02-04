@@ -1,15 +1,15 @@
-import React from "react";
-import { useParams } from "react-router-dom";
-import Title from "../components/Title";
+import React from "react"
+import { useParams } from "react-router-dom"
+import Title from "../components/Title"
 
 const Crypto = () => {
-    const { cryptoId } = useParams();
+  const { cryptoId } = useParams()
 
-    return (
-        <>
-            <Title title={cryptoId} />
-        </>
-    );
+  return (
+    <>
+      <Title title={cryptoId} />
+    </>
+  )
 }
 
-export default Crypto;
+export default Crypto
