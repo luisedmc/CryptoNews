@@ -1,8 +1,8 @@
 import React from "react"
 import { Form } from "react-bootstrap"
-import { SearchBoxProps } from "./types"
+import { SearchBoxProps } from "./interfaces/iSearchBox"
 
-const SearchBox = ({ onChangeHandler, className = "" }: SearchBoxProps) => {
+export const SearchBox = ({ onChangeHandler, className = "" }: SearchBoxProps) => {
   return (
     <Form>
       <Form.Group className={`${className} d-flex justify-content-center`}>
@@ -11,5 +11,3 @@ const SearchBox = ({ onChangeHandler, className = "" }: SearchBoxProps) => {
     </Form>
   )
 }
-
-export default SearchBox

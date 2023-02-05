@@ -1,12 +1,10 @@
 import React from "react"
-import { TitleProps } from "./types"
+import { TitleProps } from "./interfaces/iTitle"
 
-const TitleComponent = ({ titleLabel, colorClass = "" }: TitleProps) => {
+export const Title = ({ titleLabel, colorClass = "" }: TitleProps) => {
   return (
     <>
       <h1 className={`${colorClass} display-2 mt-2 text-center fw-bold`}>{titleLabel}</h1>
     </>
   )
 }
-
-export default TitleComponent

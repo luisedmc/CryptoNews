@@ -1,8 +1,9 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import { Card } from "react-bootstrap"
+import { ArticleCardProps } from "./interfaces/iArticleCard"
 
-const ArticleCard = ({ article, index }) => {
+export const ArticleCard = ({ article, index }: ArticleCardProps) => {
   return (
     <Card key={index} className="mx-auto my-3 p-0" style={{ width: "28rem" }}>
       {/* Image */}
@@ -28,5 +29,3 @@ const ArticleCard = ({ article, index }) => {
     </Card>
   )
 }
-
-export default ArticleCard
