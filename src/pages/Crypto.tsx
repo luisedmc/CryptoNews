@@ -1,13 +1,13 @@
 import React from "react"
 import { useParams } from "react-router-dom"
-import Title from "../components/Title"
+import { Title } from "src/components/Title"
 
 const Crypto = () => {
   const { cryptoId } = useParams()
 
   return (
     <>
-      <Title title={cryptoId} />
+      <Title titleLabel={cryptoId} />
     </>
   )
 }

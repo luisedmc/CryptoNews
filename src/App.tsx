@@ -1,10 +1,10 @@
-import React from "react"
+import { FunctionComponent, ReactElement } from "react"
 import { Link, Outlet } from "react-router-dom"
 import { Container, Row, Col, Nav } from "react-bootstrap"
 import "./index.css"
 import "bootstrap/dist/css/bootstrap.min.css"
 
-export const App = () => {
+export const App: FunctionComponent = (): ReactElement => {
   return (
     <Container className="mt-5">
       <Row>

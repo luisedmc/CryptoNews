@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { Container, Col, Row, Image } from "react-bootstrap"
-import Loading from "../components/Loading"
-import Title from "../components/Title"
+import { Loading } from "src/components/Loading"
+import { Title } from "src/components/Title"
+import { ArticleInformation } from "src/components/interfaces/iArticleData"
 
 const API_KEY = process.env.REACT_APP_API_KEY
 
 const Article = () => {
-  const [article, setArticle] = useState([])
+  const [article, setArticle] = useState<ArticleInformation>({} as ArticleInformation)
   const [isLoading, setIsLoading] = useState(false)
   let { id } = useParams()
 
@@ -21,8 +22,8 @@ const Article = () => {
       .then((response) => response.json())
       .then((data) => {
         setIsLoading(false)
-        setArticle(data.articles[id])
-        console.log(data.articles[id])
+        setArticle(data.articles[id!])
+        console.log(data.articles[id!])
       })
       .catch((error) => {
         setIsLoading(false)
@@ -33,29 +34,29 @@ const Article = () => {
   return (
     <Container>
       <Row>
-        <Title title={article.title} colorClass="text-primary" />
+        <Title titleLabel={article!.title} colorClass="text-primary" />
       </Row>
 
       {isLoading && <Loading />}
 
       <Row className="mt-4">
-        <p>{article.description}</p>
+        <p>{article!.description}</p>
       </Row>
 
       <Row className="mt-4">
         <Col>
-          <Image fluid src={article.urlToImage} />
+          <Image fluid src={article!.urlToImage} />
         </Col>
       </Row>
 
       <Row className="mt-4">
-        <p>{article.content}</p>
+        <p>{article!.content}</p>
       </Row>
 
       <Row className="mt-4">
         <Col className="d-flex justify-content-between">
-          <small className="text-secondary">{article.publishedAt}</small>
-          <small className="text-secondary">By {article.author}</small>
+          <small className="text-secondary">{article!.publishedAt}</small>
+          <small className="text-secondary">By {article!.author}</small>
         </Col>
       </Row>
     </Container>
