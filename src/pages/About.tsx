@@ -1,11 +1,10 @@
-import React from "react"
 import { Row } from "react-bootstrap"
-import TitleComponent from "src/components/Title"
+import { Title } from "src/components/Title"
 
-const AboutPage = () => {
+export const About = () => {
   return (
     <>
-      <TitleComponent titleLabel="About" />
+      <Title titleLabel="About" />
 
       <Row>
         <h2>Purpose of the Project:</h2>
@@ -27,5 +26,3 @@ const AboutPage = () => {
     </>
   )
 }
-
-export default AboutPage
