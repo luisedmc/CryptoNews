@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import { Card } from "react-bootstrap"
-import { ArticleCardProps } from "./interfaces/iArticleCard"
+import { ArticleCardProps } from "./interfaces/iArticleData"
 
 export const ArticleCard = ({ article, index }: ArticleCardProps) => {
   return (

@@ -1,4 +1,4 @@
 export interface TitleProps {
-  titleLabel: string
+  titleLabel: string | undefined
   colorClass?: string
 }
